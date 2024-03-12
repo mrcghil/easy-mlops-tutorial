@@ -34,6 +34,10 @@
         {
           "ref": "kpyjPU2P",
           "appendMode": false
+        },
+        {
+          "ref": "results_from_model",
+          "appendMode": false
         }
       ]
     }

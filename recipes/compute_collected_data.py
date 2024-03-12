@@ -6,7 +6,6 @@ from dataiku import pandasutils as pdu
 # Read recipe inputs from reference/test/historical dataset
 sample_data = dataiku.Dataset("sample_data")
 sample_data_df = sample_data.get_dataframe()
-
 # Drop the columns that cannot be used for modelling
 sample_data_df = sample_data_df.drop(columns=['long_trend', 'short_trend', 'noise', 'price_sensitivity', 'score'])
 # Add a tag to the data

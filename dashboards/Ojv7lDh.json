@@ -1,0 +1,30 @@
+{
+  "pages": [
+    {
+      "id": "YsYqWQb",
+      "grid": {
+        "tiles": []
+      },
+      "showTitle": false,
+      "enableCrossFilters": true
+    }
+  ],
+  "owner": "mghilar",
+  "listed": true,
+  "name": "easy-mlops-demo\u0027s default dashboard",
+  "showGrid": true,
+  "reloadWhenEventReceived": false,
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "mghilar"
+    },
+    "lastModifiedOn": 1710246244394,
+    "extendedProperties": {}
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

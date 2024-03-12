@@ -29,7 +29,7 @@
         "minute": 27,
         "hour": 15,
         "timezone": "SERVER",
-        "lastUpdate": 1710257297060
+        "lastUpdate": 1710264374277
       }
     }
   ],
@@ -54,6 +54,11 @@
             {
               "type": "MANAGED_FOLDER",
               "itemId": "zY3ZURve",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "sample_data",
               "partitionsSpec": ""
             }
           ],

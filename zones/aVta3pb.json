@@ -5,6 +5,10 @@
     {
       "objectId": "collected_data",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_collected_data",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],

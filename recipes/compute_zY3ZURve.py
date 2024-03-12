@@ -13,6 +13,9 @@ from dataiku import pandasutils as pdu
 sample_batches = dataiku.Folder("zY3ZURve")
 sample_batches_info = sample_batches.get_info()
 
+# Connect to dataset
+sample_batch_dataset = dataiku.Dataset("sample_batch")
+
 # Path in folder
 data_folder = dataiku.get_custom_variables()["batches_path"]
 
@@ -77,3 +80,5 @@ with sample_batches.get_writer(os.path.join(data_folder, "_".join(["data", curre
     w.write(
         features.to_csv().encode()
     )
+
+sample_batch_dataset.write_with_schema(features)

@@ -1,7 +1,10 @@
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # -*- coding: utf-8 -*-
 import dataiku
 import pandas as pd
 import numpy as np
+import datetime
+import os
 from dataiku import pandasutils as pdu
 
 # Read recipe inputs
@@ -36,7 +39,9 @@ def get_features(current_time: datetime.datetime, fixed_delta = "random", size:t
     # Price delta
     if type(fixed_delta) == str and fixed_delta == "random":
         price_delta = np.random.uniform(-1, 1, size)
-    elif type(fixed_delta) == int or type(fixed_delta) == float:
+    elif type(fixed_delta) == str and fixed_delta != "random":
+        raise Exception("String not recognized")
+    else:
         price_delta = fixed_delta * np.ones(size)
 
     # Random noise
@@ -64,7 +69,7 @@ def get_outcome(features: pd.DataFrame) -> pd.DataFrame:
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Produce the data and save to the folder
 current_time = datetime.datetime.now()
-optimal_price_delta = action_df['optimal_price_delta'][-1]
+optimal_price_delta = action_df['optimal_price_delta'].iloc[-1]
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Produce features

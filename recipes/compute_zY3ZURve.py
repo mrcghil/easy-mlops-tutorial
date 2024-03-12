@@ -59,7 +59,7 @@ def get_features(current_time: datetime.datetime, fixed_delta = "random", size:t
 
 def get_outcome(features: pd.DataFrame) -> pd.Series:
     # Price dependency
-    price_sensitivity = 0.2 / (1 + np.exp(-features['price_delta']))
+    price_sensitivity = - 0.1 * ((1 / (1 + np.exp(-features['price_delta']))) - 0.5)
     outcome = features['long_trend'] + features['short_trend'] + features['price_delta'] + features['noise']
     return outcome >= 0.9
 

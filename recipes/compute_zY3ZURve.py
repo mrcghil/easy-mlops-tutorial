@@ -4,6 +4,7 @@ import dataiku
 import datetime
 import pandas as pd
 import numpy as np
+import os
 # import matplotlib.pyplot as plt
 from dataiku import pandasutils as pdu
 
@@ -69,3 +70,10 @@ features = get_features(current_time, "random", (1000,))
 print(features.head(20))
 features['purchased'] = get_outcome(features)
 print(features.describe())
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+# Save data to the folder
+with sample_batches.get_writer(os.path.join(data_folder, "_".join(["data", current_time.strftime("%Y%m%d_%H_%M_%S")]))) as w:
+    w.write(
+        features.to_csv().encode()
+    )

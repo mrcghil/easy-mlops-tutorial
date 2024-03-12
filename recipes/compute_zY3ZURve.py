@@ -31,7 +31,7 @@ def get_features(current_time: datetime.datetime, fixed_delta = "random", size:t
     timestamps = pd.date_range(current_time, periods=size[0], freq="s")
 
     # Trend increses in time to saturation
-    long_trend = min((0.008 * time_delta.total_seconds() / (24 * 60 * 60)), 1) * np.ones(size)
+    long_trend = min((0.008 * time_delta.total_seconds() / (24 * 60 * 60)), 0.80) * np.ones(size)
 
     # Intraday
     short_trend = 0.1 * np.sin( 2 * np.pi * (time_delta.seconds / 3600) / 24 ) * np.ones(size)
@@ -59,7 +59,7 @@ def get_features(current_time: datetime.datetime, fixed_delta = "random", size:t
 
 def get_outcome(features: pd.DataFrame) -> pd.Series:
     # Price dependency
-    price_sensitivity = - 0.2 / (1 + np.exp(-features['price_delta']))
+    price_sensitivity = 0.2 / (1 + np.exp(-features['price_delta']))
     outcome = features['long_trend'] + features['short_trend'] + features['price_delta'] + features['noise']
     return outcome >= 0.9
 

@@ -64,7 +64,7 @@ def get_outcome(features: pd.DataFrame) -> pd.DataFrame:
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Produce the data and save to the folder
 current_time = datetime.datetime.now()
-optimal_price_delta = -1 # action_df['optimal_price_delta'][0]
+optimal_price_delta = action_df['optimal_price_delta'][-1]
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Produce features

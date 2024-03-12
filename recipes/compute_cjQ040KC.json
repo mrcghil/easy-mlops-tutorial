@@ -24,6 +24,10 @@
         {
           "ref": "collected_data",
           "deps": []
+        },
+        {
+          "ref": "results_from_model",
+          "deps": []
         }
       ]
     }

@@ -11,6 +11,9 @@ action_df = action.get_dataframe()
 sample_results = dataiku.Folder("kpyjPU2P")
 sample_results_info = sample_results.get_info()
 
+# Path in folder
+data_folder = dataiku.get_custom_variables()["batches_path"]
+
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Functions to get the data
 seed = 11223344
@@ -70,5 +73,7 @@ print(features.describe())
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Write recipe outputs
-sample_results = dataiku.Folder("kpyjPU2P")
-sample_results_info = sample_results.get_info()
+with sample_results.get_writer(os.path.join(data_folder, "_".join(["data", current_time.strftime("%Y%m%d_%H_%M_%S") + ".csv"]))) as w:
+    w.write(
+        features.to_csv().encode()
+    )

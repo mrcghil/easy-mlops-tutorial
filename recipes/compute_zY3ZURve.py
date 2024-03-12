@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import dataiku
 import datetime
-import pandas as pd, numpy as np
+import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from dataiku import pandasutils as pdu
 
@@ -20,4 +21,4 @@ def get_measurement(features: pd.DataFrame) -> pd.Series:
 	pass
 
 # Produce the data and save to the folder
-
+current_time = datetime.datetime.now().timestamp()

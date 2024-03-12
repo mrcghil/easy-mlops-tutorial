@@ -82,8 +82,12 @@
     }
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"timestamps","type":"date"},
+      {"name":"price_delta","type":"double"},
+      {"name":"purchased","type":"boolean"}
+    ],
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {

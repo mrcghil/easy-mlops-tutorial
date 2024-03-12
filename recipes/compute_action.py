@@ -9,12 +9,20 @@ from dataiku import pandasutils as pdu
 model_versions = dataiku.Folder("cjQ040KC")
 model_versions_info = model_versions.get_info()
 
+# Load the model score-cards
 
+
+# Decide which model is best to run
+
+
+# Predict the model output
+
+
+# Pass the model output and other relevant info to the outputs
 action_df = pd.DataFrame({
 	"timestamp": [pd.Timestamp(year=2024, month=3, day=12)],
 	"optimal_price_delta": [-0.9]
 })
-
 
 # Write recipe outputs
 action = dataiku.Dataset("action")

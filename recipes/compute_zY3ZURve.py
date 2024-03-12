@@ -2,6 +2,7 @@
 import dataiku
 import datetime
 import pandas as pd, numpy as np
+import matplotlib.pyplot as plt
 from dataiku import pandasutils as pdu
 
 # Connect to folder

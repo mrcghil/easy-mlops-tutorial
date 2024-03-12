@@ -25,6 +25,10 @@
         {
           "ref": "zY3ZURve",
           "appendMode": false
+        },
+        {
+          "ref": "sample_batch",
+          "appendMode": true
         }
       ]
     }

@@ -14,7 +14,7 @@ sample_batches = dataiku.Folder("zY3ZURve")
 sample_batches_info = sample_batches.get_info()
 
 # Connect to dataset
-sample_batch_dataset = dataiku.Dataset("sample_batch")
+sample_data_dataset = dataiku.Dataset("sample_data")
 
 # Path in folder
 data_folder = dataiku.get_custom_variables()["batches_path"]
@@ -74,8 +74,9 @@ print(features.head(20))
 features['purchased'] = get_outcome(features)
 print(features.describe())
 
-features = features.drop(columns=["long_trend", "short_trend", "noise"])
-print(features.head(20))
+# Drop this later to show
+# features = features.drop(columns=["long_trend", "short_trend", "noise"])
+# print(features.head(20))
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Save data to the folder
@@ -84,4 +85,4 @@ with sample_batches.get_writer(os.path.join(data_folder, "_".join(["data", curre
         features.to_csv().encode()
     )
 
-sample_batch_dataset.write_with_schema(features)
+sample_data_dataset.write_with_schema(features)

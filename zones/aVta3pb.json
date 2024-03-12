@@ -9,6 +9,10 @@
     {
       "objectId": "compute_collected_data",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "sample_batch",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],

@@ -7,7 +7,7 @@ from dataiku import pandasutils as pdu
 collected_data = dataiku.Dataset("collected_data")
 collected_data_df = collected_data.get_dataframe()
 
-
+# TODO: Implement some EDA stuff
 
 
 # Write recipe outputs

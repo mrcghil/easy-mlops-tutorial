@@ -9,6 +9,10 @@
     {
       "objectId": "compute_zY3ZURve",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "sample_data",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],

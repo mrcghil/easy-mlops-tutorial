@@ -13,24 +13,16 @@ sample_data_df = sample_data_df.drop(columns=['long_trend', 'short_trend', 'nois
 sample_data_df['source'] = "reference"
 
 # Read inputs from the live dateset (results of model being active)
-try:
-	results_from_model = dataiku.Dataset("results_from_model")
-	results_from_model_df = results_from_model.get_dataframe()
-	# Drop the columns that cannot be used for modelling
-	results_from_model_df = results_from_model_df.drop(columns=['long_trend', 'short_trend', 'noise', 'price_sensitivity', 'score'])
-	# Add a tag to the data
-	results_from_model_df['source'] = "live"
-except Exception as exc:
-	print(exc.args)
-	print("Data from live model not available.")
-	live_data = False
+results_from_model = dataiku.Dataset("results_from_model")
+results_from_model_df = results_from_model.get_dataframe()
+# Drop the columns that cannot be used for modelling
+results_from_model_df = results_from_model_df.drop(columns=['long_trend', 'short_trend', 'noise', 'price_sensitivity', 'score'])
+# Add a tag to the data
+results_from_model_df['source'] = "live"
 
 
 # Collate the two sets
-if live_data:
-	collected_data_df = pd.concat([sample_data_df, results_from_model_df])
-else:
-	collected_data_df = sample_data_df
+collected_data_df = pd.concat([sample_data_df, results_from_model_df])
 
 # Write recipe outputs
 collected_data = dataiku.Dataset("collected_data")

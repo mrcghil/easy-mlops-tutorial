@@ -35,7 +35,7 @@ def get_features(current_time: datetime.datetime, fixed_delta = "random", size:t
 
     # Price delta
     if type(fixed_delta) == str and fixed_delta == "random":
-        price_delta = np.random.uniform(-0.5, 0.5, size)
+        price_delta = np.random.uniform(-1, 1, size)
     elif type(fixed_delta) == int or type(fixed_delta) == float:
         price_delta = fixed_delta * np.ones(size)
 
@@ -56,8 +56,8 @@ def get_features(current_time: datetime.datetime, fixed_delta = "random", size:t
 
 def get_outcome(features: pd.DataFrame) -> pd.DataFrame:
     # Price dependency
-    features['price_sensitivity'] = 0.1 * ((1 / (1 + np.exp(-features['price_delta']))) - 0.5)
-    features['score'] = features['long_trend'] + features['short_trend'] + features['price_delta'] + features['noise']
+    features['price_sensitivity'] = - 1 * ((1 / (1 + np.exp(-features['price_delta']))) - 0.5)
+    features['score'] = features['long_trend'] + features['short_trend'] + features['price_sensitivity'] + features['noise']
     features['output'] = features['score'] >= 0.9
     return features
 

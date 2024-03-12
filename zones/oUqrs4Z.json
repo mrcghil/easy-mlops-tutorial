@@ -5,6 +5,10 @@
     {
       "objectId": "kpyjPU2P",
       "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_kpyjPU2P",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],

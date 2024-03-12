@@ -28,7 +28,7 @@
         },
         {
           "ref": "sample_data",
-          "appendMode": true
+          "appendMode": false
         }
       ]
     }

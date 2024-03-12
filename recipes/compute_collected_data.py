@@ -32,7 +32,6 @@ if live_data:
 else:
 	collected_data_df = sample_data_df
 
-
 # Write recipe outputs
 collected_data = dataiku.Dataset("collected_data")
 collected_data.write_with_schema(collected_data_df)

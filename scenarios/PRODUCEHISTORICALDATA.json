@@ -1,25 +1,38 @@
 {
   "type": "step_based",
   "name": "Produce Historical Data",
-  "active": false,
-  "creationTag": {
-    "versionNumber": 0,
-    "lastModifiedBy": {
-      "login": "mghilar"
-    },
-    "lastModifiedOn": 1710257231605,
-    "extendedProperties": {}
-  },
+  "active": true,
   "checklists": {
     "checklists": []
   },
   "delayedTriggersBehavior": {
     "delayWhileRunning": true,
     "squashDelayedTriggers": true,
-    "suppressTriggersWhileRunning": true
+    "suppressTriggersWhileRunning": false
   },
   "tags": [],
-  "triggers": [],
+  "triggers": [
+    {
+      "id": "KF91K1Ty",
+      "type": "temporal",
+      "name": "Time-based",
+      "delay": 5,
+      "active": true,
+      "params": {
+        "repeatFrequency": 1,
+        "frequency": "Hourly",
+        "startingFrom": "2024-03-12",
+        "daysOfWeek": [
+          "Tuesday"
+        ],
+        "monthlyRunOn": "ON_THE_DAY",
+        "minute": 27,
+        "hour": 15,
+        "timezone": "SERVER",
+        "lastUpdate": 1710257260774
+      }
+    }
+  ],
   "reporters": [],
   "params": {
     "steps": []

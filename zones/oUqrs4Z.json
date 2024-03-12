@@ -9,6 +9,10 @@
     {
       "objectId": "compute_kpyjPU2P",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "results_from_model",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],

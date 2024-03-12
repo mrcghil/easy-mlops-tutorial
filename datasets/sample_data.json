@@ -87,8 +87,15 @@
     }
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"timestamps","type":"date"},
+      {"name":"long_trend","type":"double"},
+      {"name":"short_trend","type":"double"},
+      {"name":"noise","type":"double"},
+      {"name":"price_delta","type":"double"},
+      {"name":"purchased","type":"boolean"}
+    ],
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {

@@ -58,7 +58,7 @@ def get_outcome(features: pd.DataFrame) -> pd.DataFrame:
     # Price dependency
     features['price_sensitivity'] = - 1 * ((1 / (1 + np.exp(-features['price_delta']))) - 0.5)
     features['score'] = features['long_trend'] + features['short_trend'] + features['price_sensitivity'] + features['noise']
-    features['output'] = features['score'] >= 0.9
+    features['output'] = features['score'] >= 0.7
     return features
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE

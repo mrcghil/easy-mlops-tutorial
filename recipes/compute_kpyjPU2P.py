@@ -11,6 +11,8 @@ action_df = action.get_dataframe()
 sample_results = dataiku.Folder("kpyjPU2P")
 sample_results_info = sample_results.get_info()
 
+results_from_model = dataiku.Dataset("results_from_model")
+
 # Path in folder
 data_folder = dataiku.get_custom_variables()["batches_path"]
 
@@ -62,7 +64,7 @@ def get_outcome(features: pd.DataFrame) -> pd.DataFrame:
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Produce the data and save to the folder
 current_time = datetime.datetime.now()
-optimal_price_delta = action_df['optimal_price_delta'][0]
+optimal_price_delta = -1 # action_df['optimal_price_delta'][0]
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Produce features
@@ -77,3 +79,5 @@ with sample_results.get_writer(os.path.join(data_folder, "_".join(["data", curre
     w.write(
         features.to_csv().encode()
     )
+
+results_from_model.write_with_schema(features)

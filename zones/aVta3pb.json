@@ -21,6 +21,10 @@
     {
       "objectId": "cjQ040KC",
       "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_cjQ040KC",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],

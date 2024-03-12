@@ -28,7 +28,7 @@
         },
         {
           "ref": "sample_batch",
-          "appendMode": true
+          "appendMode": false
         }
       ]
     }

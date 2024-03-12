@@ -29,22 +29,22 @@ def get_features(current_time: datetime.datetime, fixed_delta = "random", size:t
     # Time
     time_delta = current_time - reference_time
     timestamps = pd.date_range(current_time, periods=size[0], freq="s")
-    
+
     # Trend increses in time to saturation
     long_trend = min((0.008 * time_delta.total_seconds() / (24 * 60 * 60)), 1) * np.ones(size)
-    
+
     # Intraday
     short_trend = 0.1 * np.sin( 2 * np.pi * (time_delta.seconds / 3600) / 24 ) * np.ones(size)
-    
+
     # Price delta
     if type(fixed_delta) == str and fixed_delta == "random":
         price_delta = np.random.uniform(-0.5, 0.5, size)
     elif type(fixed_delta) == int or type(fixed_delta) == float:
         price_delta = fixed_delta * np.ones(size)
-    
+
     # Random noise
     noise_a = np.random.normal(0, 0.02, size)
-    
+
     df = pd.DataFrame(
         {
             "timestamps": timestamps,
@@ -54,14 +54,14 @@ def get_features(current_time: datetime.datetime, fixed_delta = "random", size:t
             "price_delta": price_delta.tolist(),
         }
     )
-    
+
     return df
 
 def get_outcome(features: pd.DataFrame) -> pd.Series:
     # Price dependency
     price_sensitivity = - 0.2 / (1 + np.exp(-features['price_delta']))
     outcome = features['long_trend'] + features['short_trend'] + features['price_delta'] + features['noise']
-    return outcome
+    return outcome >= 0.9
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Produce the data and save to the folder

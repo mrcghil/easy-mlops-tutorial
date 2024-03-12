@@ -1,7 +1,12 @@
 {
   "name": "Model Run",
   "color": "#4B8021",
-  "items": [],
+  "items": [
+    {
+      "objectId": "action",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "tags": [],
   "customFields": {},

@@ -8,4 +8,5 @@ from dataiku import pandasutils as pdu
 sample_batches = dataiku.Folder("zY3ZURve")
 sample_batches_info = sample_batches.get_info()
 
-
+# Path in folder
+data_folder = dataiku.get_custom_variables()["batches_path"]

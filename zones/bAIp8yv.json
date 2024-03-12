@@ -1,7 +1,16 @@
 {
   "name": "Data Generation",
   "color": "#8C2DA7",
-  "items": [],
+  "items": [
+    {
+      "objectId": "zY3ZURve",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_zY3ZURve",
+      "objectType": "RECIPE"
+    }
+  ],
   "shared": [],
   "tags": [],
   "customFields": {},

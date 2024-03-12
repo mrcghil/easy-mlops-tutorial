@@ -33,7 +33,7 @@
       "items": [
         {
           "ref": "action",
-          "appendMode": false
+          "appendMode": true
         }
       ]
     }

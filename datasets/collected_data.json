@@ -87,7 +87,12 @@
     }
   },
   "schema": {
-    "columns": [],
+    "columns": [
+      {"name":"timestamps","type":"date"},
+      {"name":"price_delta","type":"double"},
+      {"name":"output","type":"boolean"},
+      {"name":"source","type":"string"}
+    ],
     "userModified": false
   },
   "dkuProperties": [],

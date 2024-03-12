@@ -5,6 +5,10 @@
     {
       "objectId": "action",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_action",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],

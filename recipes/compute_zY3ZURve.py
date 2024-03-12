@@ -13,9 +13,6 @@ from dataiku import pandasutils as pdu
 sample_batches = dataiku.Folder("zY3ZURve")
 sample_batches_info = sample_batches.get_info()
 
-# Connect to dataset
-sample_data_dataset = dataiku.Dataset("sample_data")
-
 # Path in folder
 data_folder = dataiku.get_custom_variables()["batches_path"]
 
@@ -57,11 +54,12 @@ def get_features(current_time: datetime.datetime, fixed_delta = "random", size:t
 
     return df
 
-def get_outcome(features: pd.DataFrame) -> pd.Series:
+def get_outcome(features: pd.DataFrame) -> pd.DataFrame:
     # Price dependency
-    price_sensitivity = - 0.1 * ((1 / (1 + np.exp(-features['price_delta']))) - 0.5)
-    outcome = features['long_trend'] + features['short_trend'] + features['price_delta'] + features['noise']
-    return outcome >= 0.9
+    features['price_sensitivity'] = 0.1 * ((1 / (1 + np.exp(-features['price_delta']))) - 0.5)
+    features['score'] = features['long_trend'] + features['short_trend'] + features['price_delta'] + features['noise']
+    features['output'] = features['score'] >= 0.9
+    return features
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Produce the data and save to the folder
@@ -70,8 +68,8 @@ current_time = datetime.datetime.now()
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Produce features
 features = get_features(current_time, "random", (1000,))
-print(features.head(20))
-features['purchased'] = get_outcome(features)
+print(features.head(5))
+features = get_outcome(features)
 print(features.describe())
 
 # Drop this later to show
@@ -85,4 +83,6 @@ with sample_batches.get_writer(os.path.join(data_folder, "_".join(["data", curre
         features.to_csv().encode()
     )
 
+# Connect to dataset
+sample_data_dataset = dataiku.Dataset("sample_data")
 sample_data_dataset.write_with_schema(features)

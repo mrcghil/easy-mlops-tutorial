@@ -9,6 +9,12 @@ from dataiku import pandasutils as pdu
 model_versions = dataiku.Folder("cjQ040KC")
 model_versions_info = model_versions.get_info()
 
+# Get the latest model build path
+with lts_storage.get_download_stream(full_payment_list_file) as f:
+	full_payment_list = json.loads(
+		f.read().decode()
+	)
+
 # Load the model score-cards
 
 

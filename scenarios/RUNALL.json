@@ -1,15 +1,7 @@
 {
   "type": "step_based",
   "name": "RunAll",
-  "active": false,
-  "creationTag": {
-    "versionNumber": 0,
-    "lastModifiedBy": {
-      "login": "mghilar"
-    },
-    "lastModifiedOn": 1710332482515,
-    "extendedProperties": {}
-  },
+  "active": true,
   "checklists": {
     "checklists": []
   },
@@ -19,7 +11,23 @@
     "suppressTriggersWhileRunning": true
   },
   "tags": [],
-  "triggers": [],
+  "triggers": [
+    {
+      "id": "V0TefIkV",
+      "type": "follow_scenariorun",
+      "name": "Follow scenario",
+      "delay": 60,
+      "active": true,
+      "params": {
+        "scenarioId": "PRODUCEHISTORICALDATA",
+        "outcomeFilter": "SUCCESS"
+      },
+      "graceDelaySettings": {
+        "delay": 0,
+        "checkAgainAfterGraceDelay": false
+      }
+    }
+  ],
   "reporters": [],
   "params": {
     "steps": []

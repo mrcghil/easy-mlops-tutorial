@@ -126,9 +126,9 @@ if REFIT_MODEL:
     latest_model = {
         "path": current_time.strftime("%Y%m%d_%H_%M_%S")
     }
-    with model_versions.get_writer(os.path.join(latest_model['path'], "_".join(["model", f"{ind}.json"]))) as w:
+    with model_versions.get_writer("latest_model.json") as w:
             w.write(
-                model.to_json().encode()
+                json.dumps(latest_model).encode()
             )
     ## 
     for ind, model in enumerate(models_collection):

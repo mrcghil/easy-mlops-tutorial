@@ -10,6 +10,7 @@ collected_data_df = collected_data.get_dataframe()
 
 model_versions = dataiku.Folder("cjQ040KC")
 model_versions_info = model_versions.get_info()
+data_folder = dataiku.get_custom_variables()["batches_path"]
 
 # Problem constants
 ALL_IN_COST = 1

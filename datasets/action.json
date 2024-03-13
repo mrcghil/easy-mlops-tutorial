@@ -88,8 +88,9 @@
   },
   "schema": {
     "columns": [
-      {"name":"timestamp","type":"date"},
-      {"name":"optimal_price_delta","type":"double"}
+      {"name":"timestamp","type":"string"},
+      {"name":"optimal_price_delta","type":"double"},
+      {"name":"scores","type":"double"}
     ],
     "userModified": false
   },

@@ -117,6 +117,35 @@
           "handleWarningsAs": "WARNING",
           "proceedOnFailure": false
         }
+      },
+      {
+        "id": "build_2_true_d_action",
+        "type": "build_flowitem",
+        "name": "Action",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "builds": [
+            {
+              "type": "DATASET",
+              "itemId": "action",
+              "partitionsSpec": ""
+            }
+          ],
+          "jobType": "RECURSIVE_FORCED_BUILD",
+          "autoUpdateSchemaBeforeEachRecipeRun": false,
+          "stopAtFlowZoneBoundary": false,
+          "refreshHiveMetastore": true,
+          "handleWarningsAs": "WARNING",
+          "proceedOnFailure": false
+        }
       }
     ]
   },

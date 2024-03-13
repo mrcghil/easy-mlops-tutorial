@@ -2,6 +2,7 @@
 import dataiku
 import pandas as pd
 import numpy as np
+import json
 from dataiku import pandasutils as pdu
 
 # Read recipe inputs
@@ -31,3 +32,7 @@ collected_data['income'] = collected_data['revenue'] - collected_data['cost']
 live_df = collected_data_df[collected_data_df['source'] == "live"].reset_index()
 
 # Write recipe outputs
+with sample_batches.get_writer(os.path.join(data_folder, "_".join(["data", current_time.strftime("%Y%m%d_%H_%M_%S") + ".csv"]))) as w:
+    w.write(
+        features.to_csv().encode()
+    )

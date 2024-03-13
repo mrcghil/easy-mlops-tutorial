@@ -39,6 +39,8 @@ class ModelParameters:
         self.outputs = outputs
         # self score
         self.scores = scores
+		# timestamp
+		self.timestamp = datetime.datetime.now()
 
     def to_json(self):
         return json.dumps({
@@ -46,6 +48,7 @@ class ModelParameters:
             "parameters": self.parameters,
             "outputs": self.outputs,
             "scores":self.scores
+			"timestamp": self.timestamp.strftime("%Y%m%d_%H_%M_%S")
         })
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE

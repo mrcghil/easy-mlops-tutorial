@@ -42,7 +42,7 @@ class ModelParameters:
 
     def to_json(self):
         return json.dumps({
-            "hypers": self.hyper,
+            "hypers": self.hypers,
             "parameters": self.parameters,
             "outputs": self.outputs,
             "scores":self.scores

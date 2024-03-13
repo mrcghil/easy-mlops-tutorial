@@ -73,41 +73,118 @@
       "copySelectionFromScript": true,
       "engineType": "LINO",
       "def": {
-        "type": "scatter",
+        "type": "grouped_columns",
         "variant": "normal",
-        "name": "price_delta vs output",
+        "name": "Count by price_delta and output",
         "userEditedName": false,
         "displayWithEChartsByDefault": true,
-        "genericDimension0": [],
-        "genericDimension1": [],
-        "facetDimension": [],
-        "animationDimension": [],
-        "genericMeasures": [],
-        "xDimension": [],
-        "yDimension": [],
-        "uaXDimension": [
+        "genericDimension0": [
           {
             "column": "price_delta",
             "type": "NUMERICAL",
-            "treatAsAlphanum": false,
-            "sortBy": "NATURAL",
-            "sortAscending": false,
-            "isA": "ua",
+            "numParams": {
+              "mode": "FIXED_NB",
+              "nbBins": 10,
+              "binSize": 100,
+              "emptyBinsMode": "ZEROS"
+            },
+            "maxValues": 100,
+            "generateOthersCategory": true,
+            "forceLastPositionOthers": false,
+            "oneTickPerBin": false,
+            "filters": [],
+            "isA": "dimension",
+            "possibleSorts": [
+              {
+                "type": "NATURAL",
+                "label": "Natural ordering",
+                "sortAscending": true
+              },
+              {
+                "type": "AGGREGATION",
+                "measureIdx": 0,
+                "label": "Count of output, descending"
+              },
+              {
+                "type": "AGGREGATION",
+                "measureIdx": 0,
+                "label": "Count of output, ascending",
+                "sortAscending": true
+              }
+            ],
+            "sort": {
+              "type": "NATURAL",
+              "label": "Natural ordering",
+              "sortAscending": true
+            },
             "multiplier": "Auto",
             "digitGrouping": "DEFAULT"
           }
         ],
-        "uaYDimension": [
+        "genericDimension1": [
           {
             "column": "output",
             "type": "ALPHANUM",
-            "treatAsAlphanum": false,
-            "sortBy": "NATURAL",
-            "sortAscending": false,
-            "isA": "ua",
-            "multiplier": "Auto"
+            "numParams": {
+              "emptyBinsMode": "ZEROS"
+            },
+            "maxValues": 20,
+            "generateOthersCategory": true,
+            "forceLastPositionOthers": false,
+            "oneTickPerBin": false,
+            "filters": [],
+            "isA": "dimension",
+            "possibleSorts": [
+              {
+                "type": "NATURAL",
+                "label": "Natural ordering",
+                "sortAscending": true
+              },
+              {
+                "type": "AGGREGATION",
+                "measureIdx": 0,
+                "label": "Count of output, descending"
+              },
+              {
+                "type": "AGGREGATION",
+                "measureIdx": 0,
+                "label": "Count of output, ascending",
+                "sortAscending": true
+              }
+            ],
+            "sort": {
+              "type": "NATURAL",
+              "label": "Natural ordering",
+              "sortAscending": true
+            },
+            "multiplier": "Auto",
+            "digitGrouping": "DEFAULT"
           }
         ],
+        "facetDimension": [],
+        "animationDimension": [],
+        "genericMeasures": [
+          {
+            "column": "output",
+            "function": "COUNT",
+            "type": "ALPHANUM",
+            "displayed": true,
+            "isA": "measure",
+            "displayAxis": "axis1",
+            "displayType": "column",
+            "computeMode": "NORMAL",
+            "computeModeDim": 0,
+            "multiplier": "Auto",
+            "digitGrouping": "DEFAULT",
+            "showDisplayLabel": true,
+            "labelPosition": "BOTTOM",
+            "colorRules": []
+          }
+        ],
+        "xDimension": [],
+        "yDimension": [],
+        "uaXDimension": [],
+        "uaYDimension": [],
         "uaDimensionPair": [],
         "uaSize": [],
         "uaShape": [],
@@ -320,6 +397,7 @@
           "defaultRadius": 5.0,
           "singleShape": "FILLED_CIRCLE"
         },
+        "computeMode": "NORMAL",
         "xAxisMode": "NORMAL",
         "yAxisMode": "NORMAL",
         "pieOptions": {
@@ -395,7 +473,7 @@
             "backgroundColor": "#D9D9D9BF"
           }
         },
-        "thumbnailData": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAAAAXNSR0IArs4c6QAAASJJREFUeF7t0wERAAAIg0DXv7Q9/rAB4HYdbWA0XXBXYPwJClxg3ACO14ILjBvA8VpwgXEDOF4LLjBuAMdrwQXGDeB4LbjAuAEcrwUXGDeA47XgAuMGcLwWXGDcAI7XgguMG8DxWnCBcQM4XgsuMG4Ax2vBBcYN4HgtuMC4ARyvBRcYN4DjteAC4wZwvBZcYNwAjteCC4wbwPFacIFxAzheCy4wbgDHa8EFxg3geC24wLgBHK8FFxg3gOO14ALjBnC8Flxg3ACO14ILjBvA8VpwgXEDOF4LLjBuAMdrwQXGDeB4LbjAuAEcrwUXGDeA47XgAuMGcLwWXGDcAI7XgguMG8DxWnCBcQM4XgsuMG4Ax2vBBcYN4HgtuMC4ARyvBeOBH19gAFG6yohcAAAAAElFTkSuQmCC",
+        "thumbnailData": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAAAAXNSR0IArs4c6QAAAi5JREFUeF7t3cFJQ1EUhOF3Yw9us7EKSxArsBDFAkRwYwFiE2p6sAoRbMF1niC4fHkIf84dLr9rmTN3vmSdNvk39AJt6Nf5uEngwT8EAgs8+AKDP89vsMCDLzD48/wGCzz4AoM/b/UbvL3ZXR3aoM3t4/Ph4n3wnWKet+ax38zfX/eXL3+F14Gvd09Tm8+WXtjmza3Adf7bm7e7aZrOly7uN9OjwHUe+CWB8UmzAgXO8sDbCIxPmhUocJYH3kZgfNKsQIGzPPA2AuOTZgUKnOWBtxEYnzQrUOAsD7yNwPikWYECZ3ngbQTGJ80KFDjLA28jMD5pVqDAWR54G4HxSbMCBc7ywNsIjE+aFShwlgfeRmB80qxAgbM88DYC45NmBQqc5YG3ERifNCtQ4CwPvI3A+KRZgQJneeBtBMYnzQoUOMsDbyMwPmlWoMBZHngbgfFJswIFzvLA2wiMT5oVKHCWB95GYHzSrECBszzwNgLjk2YFCpzlgbcRGJ80K1DgLA+8jcD4pFmBAmd54G0ExifNChQ4ywNvIzA+aVagwFkeeBuB8UmzAgXO8sDbCIxPmhUocJYH3uY4wAdqtqk9+6sruONi4C/w3E6X/mF/Mr/+61dX6qp76RgLrP5u0jGOmlm3gMB1W3e5JHCX2euOCly3dZdLAneZve6owHVbd7kkcJfZ644KXLd1l0sCd5m97qjAdVt3uSRwl9nrjgpct3WXSwJ3mb3uqMB1W3e59AOy/9hvE1EzQwAAAABJRU5ErkJggg\u003d\u003d",
         "useLiveProcessingIfAvailable": true,
         "legendPlacement": "OUTER_RIGHT",
         "legendFormatting": {

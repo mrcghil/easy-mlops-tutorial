@@ -27,7 +27,7 @@ def income_function_single(price_delta:np.ndarray) -> np.ndarray:
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Where to save successive modelling tests
 class ModelParameters:
-    
+
     def __init__(self, hypers, parameters, outputs, scores):
         # Hyperparams
         self.hypers = hypers
@@ -37,7 +37,7 @@ class ModelParameters:
         self.outputs = outputs
         # self score
         self.scores = scores
-    
+
     def to_json(self):
         return json.dumps({
             "hypers": self.hyper,
@@ -51,8 +51,8 @@ class ModelParameters:
 live_df = collected_data_df[collected_data_df['source'] == "live"].reset_index()
 
 # If the performance is good we can skip the model creation below
-if False:
-    # Model 
+if True:
+    # Model
     REFIT_MODEL = True
 else:
     REFIT_MODEL = False
@@ -64,8 +64,8 @@ else:
 models_collection = []
 
 ## Iterate for all the model builds (data included)
-if True:
-    for index in range(1): 
+if REFIT_MODEL:
+    for index in range(1):
         print(f"Running tuning: {index+1} ...")
 
         ## Can select the data better (perform split and ...)
@@ -130,7 +130,7 @@ if REFIT_MODEL:
             w.write(
                 json.dumps(latest_model).encode()
             )
-    ## 
+    ##
     for ind, model in enumerate(models_collection):
         with model_versions.get_writer(os.path.join(latest_model['path'], "_".join(["model", f"{ind}.json"]))) as w:
             w.write(

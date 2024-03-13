@@ -2,11 +2,11 @@
   "homeArticleId": "2",
   "taxonomy": [
     {
-      "id": "1",
+      "id": "2",
       "children": []
     },
     {
-      "id": "2",
+      "id": "1",
       "children": []
     }
   ]

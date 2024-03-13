@@ -47,7 +47,7 @@ class ModelParameters:
             "hypers": self.hypers,
             "parameters": self.parameters,
             "outputs": self.outputs,
-            "scores":self.scores
+            "scores":self.scores,
             "timestamp": self.timestamp.strftime("%Y%m%d_%H_%M_%S")
         })
 

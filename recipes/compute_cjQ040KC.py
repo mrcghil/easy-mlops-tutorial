@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 import datetime
 import json
+import os
 from sklearn.linear_model import LogisticRegression
 from matplotlib import pyplot as plt
 from dataiku import pandasutils as pdu

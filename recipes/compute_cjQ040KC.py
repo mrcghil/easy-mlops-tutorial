@@ -64,7 +64,7 @@ else:
 models_collection = []
 
 ## Iterate for all the model builds (data included)
-if REFIT_MODEL:
+if True:
     for index in range(1): 
         print(f"Running tuning: {index+1} ...")
 

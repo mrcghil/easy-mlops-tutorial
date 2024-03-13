@@ -18,8 +18,8 @@ data_folder = dataiku.get_custom_variables()["batches_path"]
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Model
-seed = 112233
-np.random.seed(seed)
+# seed = 112233
+# np.random.seed(seed)
 reference_time = datetime.datetime(2024, 1, 1)
 
 def get_features(current_time: datetime.datetime, fixed_delta = "random", size:tuple = (1000,)) -> pd.DataFrame:

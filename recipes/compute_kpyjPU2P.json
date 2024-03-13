@@ -37,7 +37,7 @@
         },
         {
           "ref": "results_from_model",
-          "appendMode": false
+          "appendMode": true
         }
       ]
     }

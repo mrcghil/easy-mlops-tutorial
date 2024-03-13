@@ -62,8 +62,9 @@
     },
     "codeEnvs": {
       "python": {
-        "mode": "INHERIT",
-        "preventOverride": false
+        "mode": "EXPLICIT_ENV",
+        "preventOverride": true,
+        "envName": "meg_clip_dev"
       },
       "r": {
         "mode": "INHERIT",

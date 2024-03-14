@@ -45,7 +45,7 @@ def get_features(current_time: datetime.datetime, fixed_delta = "random", size:t
         price_delta = fixed_delta * np.ones(size)
 
     # Random noise
-    noise_a = np.random.normal(0, 0.02, size)
+    noise_a = np.random.normal(0, 0.5, size)
 
     df = pd.DataFrame(
         {
